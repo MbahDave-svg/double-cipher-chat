@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Cipher Chat - Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container small">
+        <h1>Double Cipher Chat</h1>
+        <p class="subtitle">Register before chatting</p>
+
+        <div class="card">
+            <h2>Create User</h2>
+            <input type="text" id="username" placeholder="Enter username">
+            <button onclick="registerUser()">Register</button>
+            <div id="registerStatus" class="status-box"></div>
+        </div>
+
+        <div class="card">
+            <h2>Open Chat</h2>
+            <p>After registering, go to the chat page.</p>
+            <a class="link-btn" href="/chat">Go to Chat</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

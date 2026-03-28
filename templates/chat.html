@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Cipher Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body onload="initChatPage()">
+    <div class="container">
+        <div class="topbar">
+            <div>
+                <h1>Double Cipher Chat</h1>
+                <p class="subtitle">Two-layer Caesar encryption</p>
+            </div>
+            <div class="current-user-box">
+                Logged in as: <strong id="currentUserLabel">Not set</strong>
+            </div>
+        </div>
+
+        <div class="chat-layout">
+            <div class="sidebar">
+                <h3>Users</h3>
+                <button class="secondary-btn" onclick="loadUsers()">Refresh Users</button>
+                <div id="userList" class="user-list"></div>
+            </div>
+
+            <div class="main-chat">
+                <div class="card">
+                    <h2>Send Message</h2>
+                    <input type="text" id="receiver" placeholder="Receiver username">
+                    <textarea id="messageInput" placeholder="Type your message..."></textarea>
+                    <input type="number" id="sendKey" placeholder="Enter sender key (1-25)" min="1" max="25">
+                    <button onclick="sendMessage()">Send</button>
+                    <div id="sendStatus" class="status-box"></div>
+                    <div id="encryptionPreview" class="status-box"></div>
+                </div>
+
+                <div class="card">
+                    <div class="messages-header">
+                        <h2>Incoming Messages</h2>
+                        <input type="number" id="receiveKey" placeholder="Enter sender key (1-25)" min="1" max="25">
+                        <button class="secondary-btn" onclick="fetchMessages()">Check Messages</button>
+                    </div>
+                    <div id="messagesBox" class="messages-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
